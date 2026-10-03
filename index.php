@@ -30,7 +30,7 @@
 
 <!-- BODY -->
 <?php if (isset($latestArticle)): ?>
-    <div id="latest-article" style="background-image: url('<?php echo $latestArticle->getImageUrl() ?>')">
+    <div id="latest-article" style="background-image: url('<?php echo htmlspecialchars($latestArticle->getImageUrl(), ENT_QUOTES) ?>')">
         <div class="preview">
             <h1><?php echo $latestArticle->getTitle() ?></h1>
             <p><?php echo $latestArticle->getAnnounce() ?></p>
