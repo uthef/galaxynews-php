@@ -40,7 +40,7 @@
             $newsCount = $this->countNews();
             $totalPages = ceil($newsCount / $this->NEWS_PORTION_SIZE);
             $currentPage = min(max($page, 1), $totalPages);
-            $offset = ($currentPage - 1) * $this->NEWS_PORTION_SIZE;
+            $offset = max(0, ($currentPage - 1) * $this->NEWS_PORTION_SIZE);
 
             $query_result = $this->mysqli->query("
                 SELECT id, title, announce, `date`, image FROM news
