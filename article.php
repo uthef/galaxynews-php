@@ -6,7 +6,7 @@
     $from = intval($_GET["from"] ?? "0");
 
     $db = new Database();
-    $db->connectWithDefaultParams();
+    $db->connectUsingEnvVars();
     $article = $db->getArticle($id);
 
     if (!$article) {
@@ -21,7 +21,7 @@
     ob_start();
 ?>
 
-<!-- HEAD -->
+<!-- HEAD SECTION -->
 <link rel="stylesheet" href="/static/styles/article.css">
 
 <?php 
@@ -29,7 +29,7 @@
     ob_start();
 ?>
 
-<!-- BODY -->
+<!-- BODY SECTION -->
 <div class="separator"></div>
 
 <div id="main-content">
@@ -62,7 +62,7 @@
                 </a>
             </div>
         </div>
-        <img src="<?php echo $article->getImageUrl() ?>" alt="Сгенерированное изображение, дополняющее содержимое статьи">
+        <img src="<?php echo htmlspecialchars($article->getImageUrl(), ENT_QUOTES) ?>" alt="Сгенерированное изображение, дополняющее содержимое статьи">
     </div>
 </div>
 

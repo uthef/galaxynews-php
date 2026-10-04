@@ -81,7 +81,7 @@
             return $article;
         }
 
-        public function connectWithDefaultParams(): void {
+        public function connectUsingEnvVars(): void {
             $this->connect(
                 getenv("DB_HOST"), 
                 getenv("DB_NAME"), 
@@ -97,7 +97,7 @@
                 $row["title"],
                 $row["announce"],
                 $row["date"],
-                "/static/images/attachments/" . $row["image"],
+                $row["image"],
                 $row["content"] ?? null
             );
         }

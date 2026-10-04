@@ -5,7 +5,7 @@
     ob_start();
 ?>
 
-<!-- BODY -->
+<!-- BODY SECTION -->
 
 <div class="separator"></div>
 

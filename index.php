@@ -5,7 +5,7 @@
     $page = intval($_GET["page"] ?? "") ?? 0;
 
     $db = new Database();
-    $db->connectWithDefaultParams();
+    $db->connectUsingEnvVars();
     $model = $db->getLatestNews($page);
 
     $LAYOUT_MODEL = new Layout();
@@ -20,7 +20,7 @@
     ob_start();
 ?>
 
-<!-- HEAD -->
+<!-- HEAD SECTION -->
 <link rel="stylesheet" href="/static/styles/index.css">
 
 <?php 
@@ -28,7 +28,7 @@
     ob_start();
 ?>
 
-<!-- BODY -->
+<!-- BODY SECTION -->
 <?php if (isset($latestArticle)): ?>
     <div id="latest-article" style="background-image: url('<?php echo htmlspecialchars($latestArticle->getImageUrl(), ENT_QUOTES) ?>')">
         <div class="preview">

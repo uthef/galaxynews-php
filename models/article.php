@@ -33,7 +33,7 @@
         }
 
         public function getImageUrl(): string {
-            return $this->imageUrl;
+            return "/static/images/attachments/$this->imageUrl";
         }
 
         public function getContent(): ?string {
